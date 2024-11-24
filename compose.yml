@@ -1,10 +1,14 @@
-version: '3'
+
 services:
   server:
-    build: .
+    build:
+      context: .
     environment:
       NODE_ENV: production
+
     ports:
-      - "3000:3000"
+      - 3000:3000
+      - 9229:9229
     volumes:
-      - ./cache:/usr/src/app/cache
+      - ./:/usr/src/app:cached
+      - ./notes:/usr/src/app/notes
